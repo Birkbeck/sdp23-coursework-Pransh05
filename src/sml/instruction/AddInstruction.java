@@ -41,12 +41,16 @@ public class AddInstruction extends Instruction {
 	public boolean equals(Object o) {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
-		AddInstruction that = (AddInstruction) o;
-		return Objects.equals(result, that.result) && Objects.equals(source, that.source);
+		if (o instanceof AddInstruction other) {
+			return Objects.equals(this.label, other.label)
+					&& Objects.equals(result, other.result)
+					&& Objects.equals(source, other.source);
+		}
+		return false;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(result, source);
+		return Objects.hash(label, result, source);
 	}
 }
