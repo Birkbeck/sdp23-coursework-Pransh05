@@ -5,7 +5,11 @@ import sml.Machine;
 import sml.RegisterName;
 
 import java.util.Objects;
-
+// TODO: write a JavaDoc for the class
+// This class implements substraction instruction.
+/**
+ * @author
+ */
 public class SubInstruction extends Instruction {
 
     private final RegisterName result;
