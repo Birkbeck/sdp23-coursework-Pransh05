@@ -27,10 +27,10 @@ public class JNZInstruction extends Instruction {
      */
     @Override
     public int execute(Machine m) {
-        if(m.getRegisters().get(condition)==0){
-            return NORMAL_PROGRAM_COUNTER_UPDATE;
+        if(m.getRegisters().get(condition) != 0){
+            return m.getLabels().getAddress(nextIns);
         }
-        return m.getLabels().getAddress(nextIns);
+        return NORMAL_PROGRAM_COUNTER_UPDATE;
     }
 
     @Override
