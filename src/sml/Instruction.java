@@ -1,6 +1,8 @@
 package sml;
 
 // TODO: write a JavaDoc for the class
+// This class contains information about instructions.
+// Each instruction is identified by label and opcode.
 
 /**
  * Represents an abstract instruction.
@@ -48,17 +50,17 @@ public abstract class Instruction {
 		return (getLabel() == null) ? "" : getLabel() + ": ";
 	}
 
-	// TODO: What does abstract in the declaration below mean?
+	// TODO: What does abstract in the declaration below mean? : done
 	//       (Write a short explanation.)
 	/*
-	* Abstract methods contains only the definition not the declaration here by making this method
+	* Abstract methods contains only the definition not the declaration. Here, by making this method
 	* abstract ensures that all the subclasses of this class will have only definition not the implementation
 	* Also, the instruction class is abstract so the abstract methods in this class will be overridden by
 	* inheriting class*/
 	@Override
 	public abstract String toString();
 
-	// TODO: Make sure that subclasses also implement equals and hashCode (needed in class Machine).
+	// TODO: Make sure that subclasses also implement equals and hashCode (needed in class Machine). : done
 
 	@Override
 	public abstract boolean equals(Object o);

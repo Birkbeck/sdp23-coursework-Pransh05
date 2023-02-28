@@ -5,6 +5,11 @@ import sml.Machine;
 import sml.RegisterName;
 
 import java.util.Objects;
+// TODO: write a JavaDoc for the class
+//This class implements divison instruction.
+/**
+ * @author Priya Goel
+ */
 
 public class DivInstruction extends Instruction {
     private final RegisterName result;

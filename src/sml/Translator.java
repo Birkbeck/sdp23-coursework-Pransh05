@@ -73,8 +73,38 @@ public final class Translator {
                 return new AddInstruction(label, Register.valueOf(r), Register.valueOf(s));
             }
 
-            // TODO: add code for all other types of instructions
+            // TODO: add code for all other types of instructions: done
+            case SubInstruction.OP_CODE -> {
+                String r = scan();
+                String s = scan();
+                return new SubInstruction(label, Register.valueOf(r), Register.valueOf(s));
+            }
 
+            case MulInstruction.OP_CODE -> {
+                String r = scan();
+                String s = scan();
+                return new MulInstruction(label, Register.valueOf(r), Register.valueOf(s));
+            }
+
+            case DivInstruction.OP_CODE -> {
+                String r = scan();
+                String s = scan();
+                return new DivInstruction(label, Register.valueOf(r), Register.valueOf(s));
+            }
+            case OutInstruction.OP_CODE -> {
+                String r = scan();
+                return new OutInstruction(label, Register.valueOf(r));
+            }
+            case MovInstruction.OP_CODE -> {
+                String r = scan();
+                int s = 10;
+                return new MovInstruction(label, Register.valueOf(r), s);
+            }
+            case JNZInstruction.OP_CODE -> {
+                String r = scan();
+                String nextIns = scan();
+                return new JNZInstruction(label, Register.valueOf(r), nextIns);
+            }
             // TODO: Then, replace the switch by using the Reflection API
 
             // TODO: Next, use dependency injection to allow this machine class
