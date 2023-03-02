@@ -10,7 +10,7 @@ import sml.Registers;
 
 import static sml.Registers.Register.EAX;
 
-public class JNZInstructionTest {
+public class JnzInstructionTest {
     private Machine machine;
     private Registers registers;
 
@@ -31,7 +31,7 @@ public class JNZInstructionTest {
     void executeValid() {
         registers.set(EAX, 10);
         machine.getLabels().addLabel("I1",20);
-        Instruction instruction = new JNZInstruction(null,EAX,"I1");
+        Instruction instruction = new JnzInstruction(null,EAX,"I1");
         Assertions.assertEquals(20, instruction.execute(machine));
     }
 
@@ -39,7 +39,7 @@ public class JNZInstructionTest {
     void JNZexecuteTestzero() {
         registers.set(EAX, 0);
         machine.getLabels().addLabel("I1",0);
-        Instruction instruction = new JNZInstruction(null, EAX, "I1");
+        Instruction instruction = new JnzInstruction(null, EAX, "I1");
         Assertions.assertEquals(-1, instruction.execute(machine));
     }
 }

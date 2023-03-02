@@ -6,12 +6,12 @@ import sml.RegisterName;
 
 import java.util.Objects;
 
-public class JNZInstruction extends Instruction {
+public class JnzInstruction extends Instruction {
     private final RegisterName condition;
     private final String nextIns;
 
     public static final String OP_CODE = "jnz";
-    public JNZInstruction(String label, RegisterName condition, String nextIns) {
+    public JnzInstruction(String label, RegisterName condition, String nextIns) {
         super(label, OP_CODE);
         this.condition = condition;
         this.nextIns = nextIns;
@@ -42,7 +42,7 @@ public class JNZInstruction extends Instruction {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        if (o instanceof JNZInstruction other) {
+        if (o instanceof JnzInstruction other) {
             return Objects.equals(this.label, other.label)
                     && Objects.equals(condition, other.condition)
                     && Objects.equals(nextIns, other.nextIns);
