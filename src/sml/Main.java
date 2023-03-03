@@ -32,5 +32,8 @@ public class Main {
 		catch (IOException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
 			System.out.println("Error reading the program from " + args[0]);
 		}
+		catch (IllegalStateException e){
+			System.out.println("Error reading the program from " + e.getMessage());
+		}
 	}
 }

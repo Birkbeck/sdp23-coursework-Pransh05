@@ -1,16 +1,13 @@
 package sml;
 
+import sml.instructionfactory.InstructionFactory;
+
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Parameter;
 import java.nio.charset.StandardCharsets;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
-
-import static sml.Registers.Register;
 
 /**
  * This class ....
@@ -68,14 +65,13 @@ public final class Translator {
             return null;
 
         String opcode = scan();
-
-            // TODO: Then, replace the switch by using the Reflection API
-
             // TODO: Then, replace the switch by using the Reflection API
             // TODO: Next, use dependency injection to allow this machine class
             //       to work with different sets of opcodes (different CPUs)
-
-        // TODO: Then, replace the switch by using the Reflection API
+        InstructionFactory factory = InstructionFactorBean.getInstance().getInstructionFactory(opcode);
+        return factory.create(label, this::scan);
+/*
+        // TODO: Then, replace the switch by using the Reflection API: done
         String insClassName = "sml.instruction."+opcode.substring(0,1).toUpperCase()+opcode.substring(1)+"Instruction";
         System.out.println("class name "+insClassName);
         try {
@@ -98,6 +94,7 @@ public final class Translator {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+        */
     }
 
     private String getLabel() {
